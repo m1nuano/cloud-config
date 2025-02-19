@@ -1,0 +1,11 @@
+spring:
+  config:
+    activate:
+      on-profile: test
+  datasource:
+    url: jdbc:postgresql://localhost:5432/senla_financial_manager
+    username: postgres
+    password: 1111
+server:
+  port: 8080
+  # 8083
