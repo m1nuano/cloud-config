@@ -11,3 +11,11 @@ spring:
 
   jpa:
     show-sql: true
+
+server:
+  port: 8082
+  servlet:
+    context-path: /
+  error:
+    whitelabel:
+      enabled: false
