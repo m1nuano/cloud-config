@@ -1,11 +1,75 @@
 spring:
-  config:
-    activate:
-      on-profile: dev
+  servlet:
+    context-parameters:
+      contextClass: org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+      contextConfigLocation: com.test.task_10.AppConfig
+
   datasource:
     url: jdbc:postgresql://localhost:5432/senla_financial_manager
     username: postgres
     password: 1111
+    driver-class-name: org.postgresql.Driver
+  config:
+    activate:
+      on-profile: default
+    main:
+      allow-bean-definition-overriding: true
+  jpa:
+    open-in-view: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+        enable_lazy_load_no_trans: true
+        cache:
+          use_second_level_cache: true
+          use_query_cache: true
+          region:
+            factory-class: org.hibernate.cache.jcache.JCacheRegionFactory
+        javax:
+          cache:
+            provider: com.github.benmanes.caffeine.jcache.spi.CaffeineCachingProvider
+            missing_cache_strategy: create
+
+  thymeleaf:
+    prefix: /WEB-INF/views/
+    suffix: .jsp
+    cache: false
+    check-template-location: false
+
 server:
   port: 8080
-  # 8081
+  #8081
+  servlet:
+    context-path: /
+  error:
+    whitelabel:
+      enabled: false
+
+checkstyle:
+  line-length: 144
+  ignore-pattern: "^package.*|^import.*"
+  local-variable-name:
+    format: "^[a-z][a-zA-Z0-9]*$"
+  empty-block:
+    option: "text"
+  javadoc-method: true
+  javadoc-type: true
+
+logging:
+  level:
+    root: INFO
+    com.test: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+  file:
+    name: logs/app.log
+    max-size: 10MB
+    max-history: 25
+
+token:
+  signing:
+    key: 53A73E5F1C4E0A2D3B5F2D784E6A1B423D6F247D1F6E5C3A596D635A75327855
