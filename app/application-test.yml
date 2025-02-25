@@ -1,11 +1,11 @@
 spring:
   servlet:
-    driver-class-name: org.h2.Driver
     context-parameters:
       contextClass: org.springframework.web.context.support.AnnotationConfigWebApplicationContext
       contextConfigLocation: com.test.task_10.AppConfig
 
   datasource:
+    driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
     username: sa
     password:
