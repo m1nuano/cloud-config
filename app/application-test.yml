@@ -1,16 +1,22 @@
 spring:
   servlet:
+    driver-class-name: org.h2.Driver
     context-parameters:
       contextClass: org.springframework.web.context.support.AnnotationConfigWebApplicationContext
       contextConfigLocation: com.test.task_10.AppConfig
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/senla_financial_manager
-    username: postgres
-    password: 1111
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
 
   jpa:
     show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
 
 server:
   port: 8082

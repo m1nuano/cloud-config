@@ -1,5 +1,6 @@
 spring:
   servlet:
+    driver-class-name: org.postgresql.Driver
     context-parameters:
       contextClass: org.springframework.web.context.support.AnnotationConfigWebApplicationContext
       contextConfigLocation: com.test.task_10.AppConfig
@@ -11,6 +12,8 @@ spring:
 
   jpa:
     show-sql: true
+    hibernate:
+      ddl-auto: update
 
 server:
   port: 8080

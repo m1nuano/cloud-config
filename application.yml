@@ -1,13 +1,9 @@
 spring:
   servlet:
-    driver-class-name: org.postgresql.Driver
-
     main:
       allow-bean-definition-overriding: true
   jpa:
     open-in-view: true
-    hibernate:
-      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
